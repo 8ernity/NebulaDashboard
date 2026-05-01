@@ -118,8 +118,3 @@ const SAFE_MARGIN = 24; // Change this value to adjust the invisible border
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-## 🪐 Credits
-
-Designed and developed by **Antigravity** for **8ernity**. Built with a passion for cinematic UI and immersive web experiences.
