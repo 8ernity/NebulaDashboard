@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Nebula Dashboard",
+  "version": "1.0.0",
+  "description": "A cinematic, 3D galaxy dashboard for your new tab.",
+  "permissions": [
+    "history",
+    "storage",
+    "geolocation",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://suggestqueries.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Nebula Dashboard"
+  },
+  "icons": {
+    "16": "icon.jpg",
+    "48": "icon.jpg",
+    "128": "icon.jpg"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://api.open-meteo.com https://ipapi.co https://nominatim.openstreetmap.org https://suggestqueries.google.com;"
+  }
+}
