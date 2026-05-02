@@ -73,6 +73,27 @@
 
 ---
 
+## 🔄 Data Flow Diagram
+
+```mermaid
+graph LR
+
+    USER[User]
+    UI[Dashboard UI]
+    SYSTEM[Client Logic]
+    STORAGE[(Local Storage)]
+    ENGINE[Search Engine]
+
+    USER -->|Enter Search| UI
+    UI -->|Send Query| SYSTEM
+
+    SYSTEM -->|Store History| STORAGE
+    STORAGE -->|Retrieve Data| SYSTEM
+
+    SYSTEM -->|Redirect Search| ENGINE
+    ENGINE -->|Results| USER
+```
+
 ## 📂 Project Structure
 
 ```text
