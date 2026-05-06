@@ -44,7 +44,10 @@
 
 ---
 
-## 🚀 Installation & Setup
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="28" style="vertical-align:-4px;">
+  Installation & Setup
+</h2>
 
 ### Local Development
 1. Clone the repository:
