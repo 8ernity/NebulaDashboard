@@ -9,7 +9,10 @@
 
 ---
 
-## ✨ Key Features
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2728/512.gif" alt="✨" width="25" style="vertical-align:-4px;">
+  Key Features
+</h2>
 
 ### 🔭 3D Galaxy Visualization
 - **Stars as History**: Your most visited sites are rendered as unique stars within a procedural galaxy.
@@ -32,7 +35,10 @@
 
 ---
 
-## 🛠 Technology Stack
+<h2 style="margin:0;">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6e0_fe0f/512.gif" alt="🛠️" width="28" style="vertical-align:-4px;">
+  Technology Stack
+</h2>
 
 - **Frontend**: [React](https://reactjs.org/) with [Vite](https://vitejs.dev/)
 - **3D Engine**: [Three.js](https://threejs.org/) via [@react-three/fiber](https://github.com/pmndrs/react-three-fiber)
