@@ -2,6 +2,24 @@ import React, { useState, useEffect, useRef } from 'react';
 import { GripVertical } from 'lucide-react';
 
 export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, onSave, style = {} }) {
+  const glassRef = useRef(null);
+
+  useEffect(() => {
+    // Only apply to the weather widget as requested
+    if (id === 'weather' && window.liquidGlass && glassRef.current) {
+      const glass = window.liquidGlass(glassRef.current, {
+        scale: -112,
+        chroma: 6,
+        mapBlur: 12,
+        blur: 15,
+        saturate: 1.5,
+      });
+      return () => {
+        if (glass && glass.destroy) glass.destroy();
+      };
+    }
+  }, [id, visible]);
+
   const [pos, setPos] = useState(() => {
     const saved = localStorage.getItem(`nebula_widget_pos_${id}`);
     return saved ? JSON.parse(saved) : defaultPos;
@@ -96,7 +114,8 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
 
   return (
     <div 
-      className="glass-panel"
+      ref={glassRef}
+      className={id === 'weather' ? "liquid-glass-panel" : "glass-panel"}
       style={{
         position: 'fixed',
         top: Math.max(SAFE_MARGIN, Math.min(pos.y, (window.innerHeight || 1080) - size.height - SAFE_MARGIN)),

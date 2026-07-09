@@ -4,8 +4,8 @@ import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const CATEGORIES = [
-  { name: 'Coding', color: '#0066ff', emissive: '#0066ff' }, // Deep Electric Blue
-  { name: 'Social', color: '#ff0000', emissive: '#ff0000' }, // Vibrant Pure Red
+  { name: 'Coding', color: '#4499ff', emissive: '#4499ff' }, // Electric Blue
+  { name: 'Social', color: '#ff3333', emissive: '#ff3333' }, // Vivid Red
   { name: 'Video', color: '#ffff00', emissive: '#ffff00' },
   { name: 'Other', color: '#00ff44', emissive: '#00ff44' },
 ];
