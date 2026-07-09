@@ -207,8 +207,13 @@
     }
 
     refresh();
-    el.style.backdropFilter =
-      "url(#" + id + ") blur(" + o.blur + "px) saturate(" + o.saturate + ")";
+    
+    const className = "lg-active-" + uid;
+    el.classList.add(className);
+    
+    const styleTag = document.createElement("style");
+    styleTag.textContent = "." + className + " { backdrop-filter: url(#" + id + ") blur(" + o.blur + "px) saturate(" + o.saturate + ") !important; -webkit-backdrop-filter: url(#" + id + ") blur(" + o.blur + "px) saturate(" + o.saturate + ") !important; }";
+    document.head.appendChild(styleTag);
 
     let timer = null;
     const ro = new ResizeObserver(function () {
@@ -224,7 +229,8 @@
         ro.disconnect();
         clearTimeout(timer);
         parts.filter.remove();
-        el.style.backdropFilter = "";
+        styleTag.remove();
+        el.classList.remove(className);
       },
     };
   }
