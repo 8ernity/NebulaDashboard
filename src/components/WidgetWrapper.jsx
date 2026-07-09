@@ -5,14 +5,14 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
   const glassRef = useRef(null);
 
   useEffect(() => {
-    // Only apply to the weather widget as requested
-    if (id === 'weather' && window.liquidGlass && glassRef.current) {
+    // Apply to all widgets
+    if (window.liquidGlass && glassRef.current) {
       const glass = window.liquidGlass(glassRef.current, {
-        scale: -112,
-        chroma: 6,
-        mapBlur: 12,
-        blur: 15,
-        saturate: 1.5,
+        scale: -150,    // Stronger refraction
+        chroma: 10,     // More color splitting (chromatic aberration)
+        mapBlur: 24,    // Smoother glass surface
+        blur: 0,        // 0 frosted blur for perfect clarity
+        saturate: 1.8,  // Boost colors behind it
       });
       return () => {
         if (glass && glass.destroy) glass.destroy();
@@ -115,7 +115,7 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
   return (
     <div 
       ref={glassRef}
-      className={id === 'weather' ? "liquid-glass-panel" : "glass-panel"}
+      className="liquid-glass-panel"
       style={{
         position: 'fixed',
         top: Math.max(SAFE_MARGIN, Math.min(pos.y, (window.innerHeight || 1080) - size.height - SAFE_MARGIN)),

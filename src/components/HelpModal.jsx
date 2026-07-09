@@ -1,7 +1,9 @@
 import React from 'react';
 import { X, Info, MousePointer2, Search, ZoomIn, Sparkles } from 'lucide-react';
+import { useLiquidGlass } from '../hooks/useLiquidGlass';
 
 export function HelpModal({ onClose }) {
+  const glassRef = useLiquidGlass();
   return (
     <div style={{
       position: 'fixed',
@@ -18,7 +20,8 @@ export function HelpModal({ onClose }) {
       animation: 'fadeIn 0.5s ease'
     }} onClick={onClose}>
       <div 
-        className="glass-panel"
+        ref={glassRef}
+        className="liquid-glass-panel"
         style={{
           width: '500px',
           maxHeight: '80vh',

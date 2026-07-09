@@ -438,7 +438,7 @@ function App() {
         <div style={{ position: 'fixed', bottom: '1.5rem', right: '1.2rem', zIndex: 1000, pointerEvents: 'auto', display: 'flex', flexDirection: 'column', gap: '0.8rem', alignItems: 'center' }}>
           <button 
             onClick={() => setShowHelp(true)}
-            className="glass-panel"
+            className="liquid-glass-panel"
             style={{
               width: '44px',
               height: '44px',
@@ -461,7 +461,7 @@ function App() {
 
           <button 
             onClick={() => setShowSettings(!showSettings)}
-            className="glass-panel"
+            className="liquid-glass-panel"
             style={{
               width: '44px',
               height: '44px',
@@ -507,8 +507,8 @@ function App() {
           -webkit-backdrop-filter: blur(${settings.controls.blurAmount}px) saturate(150%) !important;
         }
         .liquid-glass-panel {
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06));
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -8px 20px rgba(255, 255, 255, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+          background: transparent !important;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -4px 10px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
           border-radius: 20px;
         }
         @keyframes fadeIn {

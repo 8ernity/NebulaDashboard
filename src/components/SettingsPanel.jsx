@@ -1,7 +1,9 @@
 import React from 'react';
 import { X, Sliders, Layout, Monitor, Ghost, Clock } from 'lucide-react';
+import { useLiquidGlass } from '../hooks/useLiquidGlass';
 
 export function SettingsPanel({ settings, setSettings, onClose }) {
+  const glassRef = useLiquidGlass();
   const toggleWidget = (key) => {
     setSettings({
       ...settings,
@@ -36,7 +38,7 @@ export function SettingsPanel({ settings, setSettings, onClose }) {
       zIndex: 2000,
       animation: 'fadeIn 0.5s ease'
     }} onClick={onClose}>
-      <div className="glass-panel" 
+      <div ref={glassRef} className="liquid-glass-panel" 
         onClick={(e) => e.stopPropagation()}
         style={{
           width: '400px',

@@ -1,7 +1,9 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
 import { Trash2 } from 'lucide-react';
+import { useLiquidGlass } from '../hooks/useLiquidGlass';
 
 export function RecentDock({ history }) {
+  const glassRef = useLiquidGlass();
   const [blockedDomains, setBlockedDomains] = useState(() => {
     const saved = localStorage.getItem('nebula_blocked_domains');
     return saved ? JSON.parse(saved) : [];
@@ -73,7 +75,7 @@ export function RecentDock({ history }) {
 
   return (
     <>
-      <div className="glass-panel ui-overlay" style={{
+      <div ref={glassRef} className="liquid-glass-panel ui-overlay" style={{
         top: '50%',
         left: '1.2rem',
         transform: 'translateY(-50%)',
