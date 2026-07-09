@@ -165,13 +165,16 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
         width: '10px',
         height: '10px',
         cursor: 'nwse-resize',
-        borderRight: '2px solid rgba(255,255,255,0.2)',
-        borderBottom: '2px solid rgba(255,255,255,0.2)',
-        borderRadius: '0 0 4px 0'
+        borderRight: '2px solid rgba(255,255,255,0.4)',
+        borderBottom: '2px solid rgba(255,255,255,0.4)',
+        borderRadius: '0 0 4px 0',
+        opacity: 0,
+        transition: 'opacity 0.2s ease'
       }} />
 
       <style dangerouslySetInnerHTML={{ __html: `
-        .glass-panel:hover .widget-drag-handle { opacity: 0.6 !important; }
+        .liquid-glass-panel:hover .widget-drag-handle { opacity: 0.6 !important; }
+        .liquid-glass-panel:hover .widget-resize-handle { opacity: 1 !important; }
       `}} />
     </div>
   );

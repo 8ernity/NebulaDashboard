@@ -212,7 +212,7 @@
     el.classList.add(className);
     
     const styleTag = document.createElement("style");
-    styleTag.textContent = "." + className + " { backdrop-filter: url(#" + id + ") blur(" + o.blur + "px) saturate(" + o.saturate + ") !important; -webkit-backdrop-filter: url(#" + id + ") blur(" + o.blur + "px) saturate(" + o.saturate + ") !important; }";
+    styleTag.textContent = "." + className + " { backdrop-filter: url(#" + id + ") blur(var(--lg-blur, " + o.blur + "px)) saturate(" + o.saturate + ") !important; -webkit-backdrop-filter: url(#" + id + ") blur(var(--lg-blur, " + o.blur + "px)) saturate(" + o.saturate + ") !important; }";
     document.head.appendChild(styleTag);
 
     let timer = null;

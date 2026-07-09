@@ -496,19 +496,13 @@ function App() {
         <HelpModal onClose={() => setShowHelp(false)} />
       )}
 
-      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
-        <filter id="nebula-blur">
-          <feGaussianBlur in="SourceGraphic" stdDeviation={settings.controls.blurAmount / 4} />
-        </filter>
-      </svg>
       <style>{`
-        .glass-panel {
-          backdrop-filter: blur(${settings.controls.blurAmount}px) saturate(150%) !important;
-          -webkit-backdrop-filter: blur(${settings.controls.blurAmount}px) saturate(150%) !important;
+        :root {
+          --lg-blur: ${settings.controls.blurAmount}px;
         }
         .liquid-glass-panel {
           background: transparent !important;
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -4px 10px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4) !important;
           border-radius: 20px;
         }
         @keyframes fadeIn {
