@@ -506,6 +506,11 @@ function App() {
           backdrop-filter: blur(${settings.controls.blurAmount}px) saturate(150%) !important;
           -webkit-backdrop-filter: blur(${settings.controls.blurAmount}px) saturate(150%) !important;
         }
+        .liquid-glass-panel {
+          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.06));
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -8px 20px rgba(255, 255, 255, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+          border-radius: 20px;
+        }
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
