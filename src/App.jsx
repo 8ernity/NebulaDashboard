@@ -35,7 +35,7 @@ function App() {
         is12Hour: false
       }
     };
-    const saved = localStorage.getItem('nebula_settings_v1_init');
+    const saved = localStorage.getItem('nebula_settings_v3_strict');
     if (!saved) return defaults;
     
     const parsed = JSON.parse(saved);
@@ -142,7 +142,7 @@ function App() {
 
 
   useEffect(() => {
-    localStorage.setItem('nebula_settings_v1_init', JSON.stringify(settings));
+    localStorage.setItem('nebula_settings_v3_strict', JSON.stringify(settings));
   }, [settings]);
 
   const inferCategory = (url, title) => {
@@ -278,7 +278,7 @@ function App() {
         <WidgetWrapper 
           id="clock" 
           visible={settings.widgets.clock}
-          defaultPos={{ x: 130, y: 70 }}
+          defaultPos={{ x: 120, y: 70 }}
           defaultSize={{ width: 280, height: 160 }}
         >
           <div style={{ textAlign: 'center' }}>
@@ -301,7 +301,7 @@ function App() {
         <WidgetWrapper 
           id="date" 
           visible={settings.widgets.date}
-          defaultPos={{ x: 130, y: 260 }}
+          defaultPos={{ x: 120, y: 250 }}
           defaultSize={{ width: 200, height: 250 }}
         >
           <div style={{ textAlign: 'center' }}>

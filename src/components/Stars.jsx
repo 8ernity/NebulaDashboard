@@ -30,25 +30,36 @@ const glowTexture = (() => {
   return tex;
 })();
 
-export function Stars({ selectedStar, setSelectedStar, searchQuery, historyData = [] }) {
+function seededRandom(seed) {
+  let x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
 
+export function Stars({ selectedStar, setSelectedStar, searchQuery = '', historyData = [] }) {
   const stars = useMemo(() => {
     const temp = [];
     const clusters = {
-      'Other': new THREE.Vector3(-35, 5, 20),
-      'Video': new THREE.Vector3(-15, -35, 30),
-      'Coding': new THREE.Vector3(15, 20, 10),
-      'Social': new THREE.Vector3(45, -10, -20),
+      'Other': new THREE.Vector3(-30, 5, -10),
+      'Video': new THREE.Vector3(-15, -25, 0),
+      'Coding': new THREE.Vector3(15, 15, -5),
+      'Social': new THREE.Vector3(35, -5, -15),
     };
 
     historyData.forEach((item, i) => {
       const category = CATEGORIES.find(c => c.name === item.category) || CATEGORIES[3];
       const clusterCenter = clusters[item.category] || clusters['Other'];
 
+      // 100% deterministic exact coordinates based on index so initial star layout never shifts or randomizes
+      const rX = seededRandom(i * 12.345 + 1.1);
+      const rY = seededRandom(i * 23.456 + 2.2);
+      const rZ = seededRandom(i * 34.567 + 3.3);
+      const rSize = seededRandom(i * 45.678 + 4.4);
+      const rSpeed = seededRandom(i * 56.789 + 5.5);
+
       const position = new THREE.Vector3(
-        clusterCenter.x + (Math.random() - 0.5) * 110,
-        clusterCenter.y + (Math.random() - 0.5) * 110,
-        clusterCenter.z + (Math.random() - 0.5) * 110
+        clusterCenter.x + (rX - 0.5) * 70,
+        clusterCenter.y + (rY - 0.5) * 70,
+        clusterCenter.z + (rZ - 0.5) * 50
       );
 
       temp.push({
@@ -56,8 +67,8 @@ export function Stars({ selectedStar, setSelectedStar, searchQuery, historyData 
         position,
         color: category.color,
         emissive: category.emissive,
-        size: 1.8 + Math.random() * 1.2, // Significantly larger hero nodes
-        speed: 0.5 + Math.random() * 0.5,
+        size: 0.6 + rSize * 0.5,
+        speed: 0.5 + rSpeed * 0.5,
       });
     });
     return temp;
