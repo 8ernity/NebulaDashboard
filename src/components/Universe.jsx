@@ -99,7 +99,7 @@ export default function Universe({ selectedStar, setSelectedStar, searchQuery, h
         {/* Click background to deselect */}
         <mesh 
           position={[0,0,0]} 
-          onPointerDown={(e) => {
+          onClick={(e) => {
             e.stopPropagation();
             if (selectedStar) setSelectedStar(null);
           }}

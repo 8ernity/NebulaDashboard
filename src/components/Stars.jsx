@@ -168,6 +168,8 @@ function StarItem({ position, color, emissive, size, category, speed, title, url
       <group position={position}>
         <mesh
           onClick={(e) => { e.stopPropagation(); onSelect(); }}
+          onPointerDown={(e) => { e.stopPropagation(); }}
+          onPointerUp={(e) => { e.stopPropagation(); }}
           onPointerOver={() => { document.body.style.cursor = 'pointer'; }}
           onPointerOut={() => { document.body.style.cursor = 'auto'; }}
         >
