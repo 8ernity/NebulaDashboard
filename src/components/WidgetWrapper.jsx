@@ -21,11 +21,11 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
   }, [id, visible]);
 
   const [pos, setPos] = useState(() => {
-    const saved = localStorage.getItem(`nebula_widget_pos_${id}`);
+    const saved = localStorage.getItem(`nebula_widget_pos_v1_init_${id}`);
     return saved ? JSON.parse(saved) : defaultPos;
   });
   const [size, setSize] = useState(() => {
-    const saved = localStorage.getItem(`nebula_widget_size_${id}`);
+    const saved = localStorage.getItem(`nebula_widget_size_v1_init_${id}`);
     return saved ? JSON.parse(saved) : defaultSize;
   });
   
@@ -51,11 +51,11 @@ export function WidgetWrapper({ id, children, defaultPos, defaultSize, visible, 
   }, [size, pos.x, pos.y, id]);
 
   useEffect(() => {
-    localStorage.setItem(`nebula_widget_pos_${id}`, JSON.stringify(pos));
+    localStorage.setItem(`nebula_widget_pos_v1_init_${id}`, JSON.stringify(pos));
   }, [pos, id]);
 
   useEffect(() => {
-    localStorage.setItem(`nebula_widget_size_${id}`, JSON.stringify(size));
+    localStorage.setItem(`nebula_widget_size_v1_init_${id}`, JSON.stringify(size));
   }, [size, id]);
 
   const onMouseDown = (e) => {

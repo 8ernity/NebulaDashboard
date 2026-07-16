@@ -35,10 +35,10 @@ export function Stars({ selectedStar, setSelectedStar, searchQuery, historyData 
   const stars = useMemo(() => {
     const temp = [];
     const clusters = {
-      'Coding': new THREE.Vector3(-50, 30, -25),
-      'Social': new THREE.Vector3(50, -20, -50),
-      'Video': new THREE.Vector3(0, -50, 40),
-      'Other': new THREE.Vector3(25, 25, 50),
+      'Other': new THREE.Vector3(-35, 5, 20),
+      'Video': new THREE.Vector3(-15, -35, 30),
+      'Coding': new THREE.Vector3(15, 20, 10),
+      'Social': new THREE.Vector3(45, -10, -20),
     };
 
     historyData.forEach((item, i) => {

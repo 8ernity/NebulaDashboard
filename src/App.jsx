@@ -28,14 +28,14 @@ function App() {
         weather: true
       },
       controls: {
-        blurAmount: 20,
+        blurAmount: 0,
         idleHide: true,
-        idleTime: 5,
+        idleTime: 20,
         textBrightness: 100,
         is12Hour: false
       }
     };
-    const saved = localStorage.getItem('nebula_settings');
+    const saved = localStorage.getItem('nebula_settings_v1_init');
     if (!saved) return defaults;
     
     const parsed = JSON.parse(saved);
@@ -142,7 +142,7 @@ function App() {
 
 
   useEffect(() => {
-    localStorage.setItem('nebula_settings', JSON.stringify(settings));
+    localStorage.setItem('nebula_settings_v1_init', JSON.stringify(settings));
   }, [settings]);
 
   const inferCategory = (url, title) => {
@@ -278,7 +278,7 @@ function App() {
         <WidgetWrapper 
           id="clock" 
           visible={settings.widgets.clock}
-          defaultPos={{ x: 70, y: 70 }}
+          defaultPos={{ x: 130, y: 70 }}
           defaultSize={{ width: 280, height: 160 }}
         >
           <div style={{ textAlign: 'center' }}>
@@ -301,7 +301,7 @@ function App() {
         <WidgetWrapper 
           id="date" 
           visible={settings.widgets.date}
-          defaultPos={{ x: 70, y: 260 }}
+          defaultPos={{ x: 130, y: 260 }}
           defaultSize={{ width: 200, height: 250 }}
         >
           <div style={{ textAlign: 'center' }}>
@@ -320,7 +320,7 @@ function App() {
         <WidgetWrapper 
           id="searchbar" 
           visible={settings.widgets.searchbar}
-          defaultPos={{ x: window.innerWidth/2 - 300, y: 60 }}
+          defaultPos={{ x: Math.round(window.innerWidth/2 - 300), y: 60 }}
           defaultSize={{ width: 600, height: 80 }}
           style={{ 
             overflow: 'visible', 
@@ -340,7 +340,7 @@ function App() {
         <WidgetWrapper 
           id="weather" 
           visible={settings.widgets.weather}
-          defaultPos={{ x: window.innerWidth - 420, y: 40 }}
+          defaultPos={{ x: Math.round(window.innerWidth - 390), y: 60 }}
           defaultSize={{ width: 350, height: 180 }}
         >
           {weatherData ? (
@@ -365,7 +365,7 @@ function App() {
         <WidgetWrapper 
           id="history_search" 
           visible={true}
-          defaultPos={{ x: window.innerWidth/2 - 170, y: window.innerHeight - 80 }}
+          defaultPos={{ x: Math.round(window.innerWidth/2 - 170), y: Math.round(window.innerHeight - 90) }}
           defaultSize={{ width: 340, height: 60 }}
           style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}
         >
