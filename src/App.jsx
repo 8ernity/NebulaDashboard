@@ -502,7 +502,18 @@ function App() {
         }
         .liquid-glass-panel {
           background: transparent !important;
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-top: 1.5px solid rgba(255, 255, 255, 0.55) !important;
+          border-left: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+          border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+          box-shadow: 
+            inset 0 1px 1px 0 rgba(255, 255, 255, 0.6), 
+            inset 0 2px 6px 0 rgba(255, 255, 255, 0.2), 
+            inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5), 
+            inset 0 -2px 6px 0 rgba(255, 255, 255, 0.08),
+            0 24px 60px rgba(0, 0, 0, 0.5), 
+            0 4px 16px rgba(0, 0, 0, 0.3) !important;
           border-radius: 20px;
         }
         @keyframes fadeIn {
